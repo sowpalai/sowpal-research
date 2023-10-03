@@ -35,7 +35,7 @@ def draw_single_maize(ax, x_position, height):
 def draw_maize_growth(ax, days=30):
     # Assuming a simple linear growth for maize over the 30 days
     # This is just a representation and may not be accurate
-    growth_rate = 0.2  # Adjust this value as needed
+    growth_rate = 0.2  # Adjust thi value as needed
     for day in range(1, days + 1):
         height = day * growth_rate
         draw_single_maize(ax, day, height)  # Adjust the x and y values as needed
