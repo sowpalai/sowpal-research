@@ -1,7 +1,9 @@
+# Import necessary libraries
 import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 
+# Function to draw soil at a specified position
 def draw_soil(ax, position=0):
     """Draw a rectangle representing soil at a specified position."""
     width = 1
@@ -26,6 +28,7 @@ def draw_soil(ax, position=0):
     for face in faces:
         ax.add_collection3d(Poly3DCollection([face], color='saddlebrown'))
 
+# Function to map input to climatic condition
 def climatic_condition(condition):
     """Map a given input to a climatic condition."""
     conditions = {
@@ -37,15 +40,16 @@ def climatic_condition(condition):
     }
     return conditions.get(condition, 'Unknown')
 
+# Main function
 def main():
     fig = plt.figure(figsize=(15, 10))
     ax = fig.add_subplot(111, projection='3d')
 
-    # Rendering 5 different plots with 5 climatic conditions
+    # Render 5 different plots with 5 climatic conditions
     for i in range(5):
         real_time_data = np.random.randint(1, 6)  # Simulating real-time data
         condition = climatic_condition(real_time_data)
-        draw_soil(ax, position=i*2)  # Drawing soil with a gap
+        draw_soil(ax, position=i*2)  # Draw soil with a gap
         ax.text(i*2 + 0.5, 0.5, 2, condition, color='red')  # Label the condition
 
     ax.set_xlim(0, 10)
@@ -58,5 +62,6 @@ def main():
 
     plt.show()
 
+# Run the main function if the script is executed directly
 if __name__ == "__main__":
     main()
